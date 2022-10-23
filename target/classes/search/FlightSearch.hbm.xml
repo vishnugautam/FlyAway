@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+		
+<hibernate-mapping>
+
+<!--HIBERNATE PROVIDES A CLASS ELEMENT 
+ hibernates needs mapping file it can be done in xml
+ classname.hbm.xml, to map the User class with sql-->
+ 
+ 
+<class name="search.FlightSearch" table="FLIGHTSEARCH">
+<!-- Id becomes primary key -->
+	<id name="id">
+		<column name="ID"/>
+	<!-- we are telling hibernate to find best value suitable for that row and insert it -->
+		<generator class="identity"/>
+	</id>
+	
+	<property name="source">
+		<column name="SOURCE"/>
+	</property>
+	
+	<property name="destination">
+		<column name="DESTINATION"/>
+	</property>
+	
+	<property name="departure">
+		<column name="DEPARTURE"/>
+	</property>
+	
+	<property name="persons">
+		<column name="PERSONS"/>
+	</property>
+	
+	
+</class> 
+
+
+</hibernate-mapping>
