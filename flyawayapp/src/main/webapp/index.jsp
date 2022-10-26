@@ -8,7 +8,7 @@
 </head>
 <body>
 <%@include file="header.html" %>
-<form action="ValidationFilter" method="post">
+<form action="ValidationFilter" method="get">
 	Enter the source: <input type="text" name="source"><br>
 	Enter the destination: <input type="text" name="destination"><br>
 	Enter departure date: <input type="date" name="departure"><br>

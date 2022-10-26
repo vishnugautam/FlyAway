@@ -19,7 +19,7 @@ public class InsertValueServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-Session session = HibernateUtils.getSessionFactory().openSession();
+		Session session = HibernateUtils.getSessionFactory().openSession();
 		
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
@@ -51,6 +51,7 @@ Session session = HibernateUtils.getSessionFactory().openSession();
 		// committing the session
 		session.getTransaction().commit();
 		session.close();
+		request.getRequestDispatcher("FlightDetails.jsp").forward(request, response);
 	}
 
 }

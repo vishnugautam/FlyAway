@@ -37,16 +37,27 @@ public class ValidationFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
-		Session session1 = HibernateUtils.getSessionFactory().openSession();
-		String sql = "SELECT SOURCE FROM flyaway.flightdetails;";
-		NativeQuery sourceQuery = session1.createSQLQuery(sql);
-		List results = sourceQuery.list();
-		System.out.println(results);
-		List<String> arrayResults = new ArrayList<String>();
-		arrayResults.addAll(results);
-		System.out.println(arrayResults);
+		Session session = HibernateUtils.getSessionFactory().openSession();
 		
-			if(arrayResults.contains(source)) {
+		// to select source 
+		String sqlSource = "SELECT source FROM flyaway.flightdetails;";
+		NativeQuery sourceQuery = session.createSQLQuery(sqlSource);
+		List sourceResults = sourceQuery.list();
+		System.out.println(sourceResults);
+		List<String> arraySourceResults = new ArrayList<String>();
+		arraySourceResults.addAll(sourceResults);
+		System.out.println(arraySourceResults);
+		
+		// to select destination
+		String sqlDestination = "SELECT destination FROM flyaway.flightdetails;";
+		NativeQuery destinationQuery = session.createSQLQuery(sqlDestination);
+		List destinationResults = destinationQuery.list();
+		System.out.println(destinationResults);
+		List<String> arrayDestinationResults = new ArrayList<String>();
+		arrayDestinationResults.addAll(destinationResults);
+		System.out.println(arrayDestinationResults);
+		
+			if((arraySourceResults.contains(source)) && (arrayDestinationResults.contains(destination))) {
 				request.getRequestDispatcher("FlightList.jsp").forward(request, response);
 				System.out.println("Bye from filter");
 			} else {

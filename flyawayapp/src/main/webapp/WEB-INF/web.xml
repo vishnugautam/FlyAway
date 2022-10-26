@@ -87,4 +87,14 @@
     <servlet-name>DeleteValueServlet</servlet-name>
     <url-pattern>/DeleteValueServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowTableServlet</display-name>
+    <servlet-name>ShowTableServlet</servlet-name>
+    <servlet-class>db.ShowTableServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowTableServlet</servlet-name>
+    <url-pattern>/ShowTableServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
