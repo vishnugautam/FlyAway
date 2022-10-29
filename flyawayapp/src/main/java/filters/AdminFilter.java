@@ -41,7 +41,7 @@ public class AdminFilter implements Filter {
 			Session session = HibernateUtils.getSessionFactory().openSession();
 			request.getRequestDispatcher("FlightDetails.jsp").forward(request, response);
 			System.out.println("Bye from filter");
-		}
+		} 
 	}
 
 
